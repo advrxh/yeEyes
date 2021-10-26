@@ -60,7 +60,7 @@ while running:
 
     if not recording:
         for contour in contours:
-            if cv2.contourArea(contour) < 1000:
+            if cv2.contourArea(contour) < 700:
                 logging.info("PERMIETER INTACT")
                 break
             logging.info("MOTION DETECTED")
@@ -80,6 +80,8 @@ while running:
             record_start = None
             recording = False
             gif_frames = []
+
+    cv2.imshow("img", frm)
 
     if cv2.waitKey(1) == ord("q"):
         break
