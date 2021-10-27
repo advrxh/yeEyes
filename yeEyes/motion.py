@@ -39,7 +39,7 @@ def write_to_gif(loc, gif_frmes):
 
 
 while running:
-    time.sleep(0.5)
+    time.sleep(0.2)
     _, frm = cap.read()
     if _:
         gray_scale = cv2.cvtColor(frm, cv2.COLOR_BGR2GRAY)
@@ -60,7 +60,7 @@ while running:
 
     if not recording:
         for contour in contours:
-            if cv2.contourArea(contour) < 700:
+            if cv2.contourArea(contour) < 500:
                 logging.info("PERMIETER INTACT")
                 break
             logging.info("MOTION DETECTED")
@@ -74,6 +74,7 @@ while running:
             gif_frames.append(frm)
         else:
             if prev_rec is not None:
+                # cv2.destroyAllWindows()
                 write_to_gif(prev_rec, gif_frames)
                 hook.notify(prev_rec)
             prev_rec = None
@@ -81,10 +82,10 @@ while running:
             recording = False
             gif_frames = []
 
-    cv2.imshow("img", frm)
+    # cv2.imshow("img", frm)
 
     if cv2.waitKey(1) == ord("q"):
         break
 
 cap.release()
-cv2.destroyAllWindows()
+# cv2.destroyAllWindows()
