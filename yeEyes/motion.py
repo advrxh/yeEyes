@@ -8,7 +8,7 @@ import logging
 from yeEyes.settings import *
 from yeEyes.dis_hook import Hook
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(VIDEO_SOURCE)
 
 prev_rec = None
 record_start = None
