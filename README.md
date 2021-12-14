@@ -37,6 +37,4 @@
     <br/>
     ![preview](./images/dis_prev.gif)
 
-* **Uncomment the code lines in [motion.py](./yeEyes/motion.py) for a img window**
-
 ## PS: I know that was a weird me :P
